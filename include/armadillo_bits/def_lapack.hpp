@@ -531,13 +531,13 @@ extern "C"
   
   // LU decomposition
   void arma_fortran(arma_sgetrf)(const blas_int* m, const blas_int* n,    float* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgetrf)(const blas_int* m, const blas_int* n,   double* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgetrf)(const blas_int* m, const blas_int* n,   double* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgetrf)(const blas_int* m, const blas_int* n, blas_cxf* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgetrf)(const blas_int* m, const blas_int* n, blas_cxd* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   
   // solve system of linear equations using pre-computed LU decomposition
   void arma_fortran(arma_sgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const    float* a, const blas_int* lda, const blas_int* ipiv,    float* b, const blas_int* ldb, blas_int* info, const blas_len trans_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info, const blas_len trans_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info, const blas_len trans_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const blas_cxf* a, const blas_int* lda, const blas_int* ipiv, blas_cxf* b, const blas_int* ldb, blas_int* info, const blas_len trans_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const blas_cxd* a, const blas_int* lda, const blas_int* ipiv, blas_cxd* b, const blas_int* ldb, blas_int* info, const blas_len trans_len) ARMA_NOEXCEPT;
   
@@ -595,13 +595,13 @@ extern "C"
   
   // Cholesky decomposition
   void arma_fortran(arma_spotrf)(const char* uplo, const blas_int* n,    float* a, const blas_int* lda, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dpotrf)(const char* uplo, const blas_int* n,   double* a, const blas_int* lda, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dpotrf)(const char* uplo, const blas_int* n,   double* a, const blas_int* lda, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_cpotrf)(const char* uplo, const blas_int* n, blas_cxf* a, const blas_int* lda, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_zpotrf)(const char* uplo, const blas_int* n, blas_cxd* a, const blas_int* lda, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   
   // solve system of linear equations using pre-computed Cholesky decomposition
   void arma_fortran(arma_spotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const    float* a, const blas_int* lda,    float* b, const blas_int* ldb, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_cpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_zpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const blas_cxd* a, const blas_int* lda, blas_cxd* b, const blas_int* ldb, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   
@@ -685,13 +685,13 @@ extern "C"
   
   // solve over/under-determined system of linear equations
   void arma_fortran(arma_sgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs,    float* a, const blas_int* lda,    float* b, const blas_int* ldb,    float* work, const blas_int* lwork, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs,   double* a, const blas_int* lda,   double* b, const blas_int* ldb,   double* work, const blas_int* lwork, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs,   double* a, const blas_int* lda,   double* b, const blas_int* ldb,   double* work, const blas_int* lwork, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs, blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb, blas_cxf* work, const blas_int* lwork, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs, blas_cxd* a, const blas_int* lda, blas_cxd* b, const blas_int* ldb, blas_cxd* work, const blas_int* lwork, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
   
   // approximately solve system of linear equations using svd (real)
   void arma_fortran(arma_sgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs,  float* a, const blas_int* lda,  float* b, const blas_int* ldb,  float* S, const  float* rcond, blas_int* rank,  float* work, const blas_int* lwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs, double* a, const blas_int* lda, double* b, const blas_int* ldb, double* S, const double* rcond, blas_int* rank, double* work, const blas_int* lwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs, double* a, const blas_int* lda, double* b, const blas_int* ldb, double* S, const double* rcond, blas_int* rank, double* work, const blas_int* lwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
   
   // approximately solve system of linear equations using svd (complex)
   void arma_fortran(arma_cgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs, blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb,  float* S, const  float* rcond, blas_int* rank, blas_cxf* work, const blas_int* lwork,  float* rwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
@@ -699,19 +699,19 @@ extern "C"
   
   // solve system of linear equations (triangular matrix)
   void arma_fortran(arma_strtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const    float* a, const blas_int* lda,    float* b, const blas_int* ldb, blas_int* info, blas_len uplo_len, blas_len trans_len, blas_len diag_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dtrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info, blas_len uplo_len, blas_len trans_len, blas_len diag_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dtrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info, blas_len uplo_len, blas_len trans_len, blas_len diag_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_ctrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb, blas_int* info, blas_len uplo_len, blas_len trans_len, blas_len diag_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_ztrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const blas_cxd* a, const blas_int* lda, blas_cxd* b, const blas_int* ldb, blas_int* info, blas_len uplo_len, blas_len trans_len, blas_len diag_len) ARMA_NOEXCEPT;
   
   // LU factorisation (general band matrix)
   void arma_fortran(arma_sgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku,    float* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku,   double* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku,   double* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku, blas_cxf* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku, blas_cxd* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   
   // solve system of linear equations using pre-computed LU decomposition (general band matrix)
   void arma_fortran(arma_sgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const    float* ab, const blas_int* ldab, const blas_int* ipiv,    float* b, const blas_int* ldb, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const   double* ab, const blas_int* ldab, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const   double* ab, const blas_int* ldab, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const blas_cxf* ab, const blas_int* ldab, const blas_int* ipiv, blas_cxf* b, const blas_int* ldb, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const blas_cxd* ab, const blas_int* ldab, const blas_int* ipiv, blas_cxd* b, const blas_int* ldb, blas_int* info, blas_len trans_len) ARMA_NOEXCEPT;
   
@@ -789,7 +789,7 @@ extern "C"
   
   // reciprocal of condition number (real, generic matrix)
   void arma_fortran(arma_sgecon)(const char* norm, const blas_int* n, const  float* a, const blas_int* lda, const  float* anorm,  float* rcond,  float* work, blas_int* iwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgecon)(const char* norm, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgecon)(const char* norm, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, generic matrix)
   void arma_fortran(arma_cgecon)(const char* norm, const blas_int* n, const blas_cxf* a, const blas_int* lda, const  float* anorm,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
@@ -797,7 +797,7 @@ extern "C"
   
   // reciprocal of condition number (real, symmetric positive definite matrix)
   void arma_fortran(arma_spocon)(const char* uplo, const blas_int* n, const  float* a, const blas_int* lda, const  float* anorm,  float* rcond,  float* work, blas_int* iwork, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dpocon)(const char* uplo, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dpocon)(const char* uplo, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, hermitian positive definite matrix)
   void arma_fortran(arma_cpocon)(const char* uplo, const blas_int* n, const blas_cxf* a, const blas_int* lda, const  float* anorm,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info, blas_len uplo_len) ARMA_NOEXCEPT;
@@ -805,7 +805,7 @@ extern "C"
   
   // reciprocal of condition number (real, triangular matrix)
   void arma_fortran(arma_strcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const  float* a, const blas_int* lda,  float* rcond,  float* work, blas_int* iwork, blas_int* info, blas_len norm_len, blas_len uplo_len, blas_len diag_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dtrcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const double* a, const blas_int* lda, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len norm_len, blas_len uplo_len, blas_len diag_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dtrcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const double* a, const blas_int* lda, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len norm_len, blas_len uplo_len, blas_len diag_len) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, triangular matrix)
   void arma_fortran(arma_ctrcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const blas_cxf* a, const blas_int* lda,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info, blas_len norm_len, blas_len uplo_len, blas_len diag_len) ARMA_NOEXCEPT;
@@ -813,7 +813,7 @@ extern "C"
   
   // reciprocal of condition number (real, band matrix)
   void arma_fortran(arma_sgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const  float* ab, const blas_int* ldab, const blas_int* ipiv, const  float* anorm,  float* rcond,  float* work, blas_int* iwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const double* ab, const blas_int* ldab, const blas_int* ipiv, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const double* ab, const blas_int* ldab, const blas_int* ipiv, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, band matrix)
   void arma_fortran(arma_cgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_cxf* ab, const blas_int* ldab, const blas_int* ipiv, const  float* anorm,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info, blas_len norm_len) ARMA_NOEXCEPT;
@@ -852,13 +852,13 @@ extern "C"
   
   // LU decomposition
   void arma_fortran(arma_sgetrf)(const blas_int* m, const blas_int* n,    float* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgetrf)(const blas_int* m, const blas_int* n,   double* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgetrf)(const blas_int* m, const blas_int* n,   double* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgetrf)(const blas_int* m, const blas_int* n, blas_cxf* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgetrf)(const blas_int* m, const blas_int* n, blas_cxd* a, const blas_int* lda, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   
   // solve system of linear equations using pre-computed LU decomposition
   void arma_fortran(arma_sgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const    float* a, const blas_int* lda, const blas_int* ipiv,    float* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const blas_cxf* a, const blas_int* lda, const blas_int* ipiv, blas_cxf* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgetrs)(const char* trans, const blas_int* n, const blas_int* nrhs, const blas_cxd* a, const blas_int* lda, const blas_int* ipiv, blas_cxd* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   
@@ -916,13 +916,13 @@ extern "C"
   
   // Cholesky decomposition
   void arma_fortran(arma_spotrf)(const char* uplo, const blas_int* n,    float* a, const blas_int* lda, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dpotrf)(const char* uplo, const blas_int* n,   double* a, const blas_int* lda, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dpotrf)(const char* uplo, const blas_int* n,   double* a, const blas_int* lda, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cpotrf)(const char* uplo, const blas_int* n, blas_cxf* a, const blas_int* lda, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zpotrf)(const char* uplo, const blas_int* n, blas_cxd* a, const blas_int* lda, blas_int* info) ARMA_NOEXCEPT;
   
   // solve system of linear equations with pre-computed Cholesky decomposition
   void arma_fortran(arma_spotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const    float* a, const blas_int* lda,    float* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zpotrs)(const char* uplo, const blas_int* n, const blas_int* nrhs, const blas_cxd* a, const blas_int* lda, blas_cxd* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   
@@ -1006,13 +1006,13 @@ extern "C"
   
   // solve over/under-determined system of linear equations
   void arma_fortran(arma_sgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs,    float* a, const blas_int* lda,    float* b, const blas_int* ldb,    float* work, const blas_int* lwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs,   double* a, const blas_int* lda,   double* b, const blas_int* ldb,   double* work, const blas_int* lwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs,   double* a, const blas_int* lda,   double* b, const blas_int* ldb,   double* work, const blas_int* lwork, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs, blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb, blas_cxf* work, const blas_int* lwork, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgels)(const char* trans, const blas_int* m, const blas_int* n, const blas_int* nrhs, blas_cxd* a, const blas_int* lda, blas_cxd* b, const blas_int* ldb, blas_cxd* work, const blas_int* lwork, blas_int* info) ARMA_NOEXCEPT;
   
   // approximately solve system of linear equations using svd (real)
   void arma_fortran(arma_sgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs, float* a, const blas_int* lda,  float* b, const blas_int* ldb,  float* S, const  float* rcond, blas_int* rank,  float* work, const blas_int* lwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs, double* a, const blas_int* lda, double* b, const blas_int* ldb, double* S, const double* rcond, blas_int* rank, double* work, const blas_int* lwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgelsd)(const blas_int* m, const blas_int* n, const blas_int* nrhs, double* a, const blas_int* lda, double* b, const blas_int* ldb, double* S, const double* rcond, blas_int* rank, double* work, const blas_int* lwork, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
 
   
   // approximately solve system of linear equations using svd (complex)
@@ -1021,19 +1021,19 @@ extern "C"
   
   // solve system of linear equations (triangular matrix)
   void arma_fortran(arma_strtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const    float* a, const blas_int* lda,    float* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dtrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dtrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const   double* a, const blas_int* lda,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_ctrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const blas_cxf* a, const blas_int* lda, blas_cxf* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_ztrtrs)(const char* uplo, const char* trans, const char* diag, const blas_int* n, const blas_int* nrhs, const blas_cxd* a, const blas_int* lda, blas_cxd* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   
   // LU factorisation (general band matrix)
   void arma_fortran(arma_sgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku,    float* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku,   double* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku,   double* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku, blas_cxf* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgbtrf)(const blas_int* m, const blas_int* n, const blas_int* kl, const blas_int* ku, blas_cxd* ab, const blas_int* ldab, blas_int* ipiv, blas_int* info) ARMA_NOEXCEPT;
   
   // solve system of linear equations using pre-computed LU decomposition (general band matrix)
   void arma_fortran(arma_sgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const    float* ab, const blas_int* ldab, const blas_int* ipiv,    float* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const   double* ab, const blas_int* ldab, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const   double* ab, const blas_int* ldab, const blas_int* ipiv,   double* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_cgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const blas_cxf* ab, const blas_int* ldab, const blas_int* ipiv, blas_cxf* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   void arma_fortran(arma_zgbtrs)(const char* trans, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_int* nrhs, const blas_cxd* ab, const blas_int* ldab, const blas_int* ipiv, blas_cxd* b, const blas_int* ldb, blas_int* info) ARMA_NOEXCEPT;
   
@@ -1111,7 +1111,7 @@ extern "C"
   
   // reciprocal of condition number (real, generic matrix)
   void arma_fortran(arma_sgecon)(const char* norm, const blas_int* n, const  float* a, const blas_int* lda, const  float* anorm,  float* rcond,  float* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgecon)(const char* norm, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgecon)(const char* norm, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, generic matrix)
   void arma_fortran(arma_cgecon)(const char* norm, const blas_int* n, const blas_cxf* a, const blas_int* lda, const  float* anorm,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info) ARMA_NOEXCEPT;
@@ -1119,7 +1119,7 @@ extern "C"
   
   // reciprocal of condition number (real, symmetric positive definite matrix)
   void arma_fortran(arma_spocon)(const char* uplo, const blas_int* n, const  float* a, const blas_int* lda, const  float* anorm,  float* rcond,  float* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dpocon)(const char* uplo, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dpocon)(const char* uplo, const blas_int* n, const double* a, const blas_int* lda, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, hermitian positive definite matrix)
   void arma_fortran(arma_cpocon)(const char* uplo, const blas_int* n, const blas_cxf* a, const blas_int* lda, const  float* anorm,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info) ARMA_NOEXCEPT;
@@ -1127,7 +1127,7 @@ extern "C"
   
   // reciprocal of condition number (real, triangular matrix)
   void arma_fortran(arma_strcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const  float* a, const blas_int* lda,  float* rcond,  float* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dtrcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const double* a, const blas_int* lda, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dtrcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const double* a, const blas_int* lda, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, triangular matrix)
   void arma_fortran(arma_ctrcon)(const char* norm, const char* uplo, const char* diag, const blas_int* n, const blas_cxf* a, const blas_int* lda,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info) ARMA_NOEXCEPT;
@@ -1135,7 +1135,7 @@ extern "C"
   
   // reciprocal of condition number (real, band matrix)
   void arma_fortran(arma_sgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const  float* ab, const blas_int* ldab, const blas_int* ipiv, const  float* anorm,  float* rcond,  float* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
-  void arma_fortran(arma_dgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const double* ab, const blas_int* ldab, const blas_int* ipiv, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
+  int arma_fortran(arma_dgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const double* ab, const blas_int* ldab, const blas_int* ipiv, const double* anorm, double* rcond, double* work, blas_int* iwork, blas_int* info) ARMA_NOEXCEPT;
   
   // reciprocal of condition number (complex, band matrix)
   void arma_fortran(arma_cgbcon)(const char* norm, const blas_int* n, const blas_int* kl, const blas_int* ku, const blas_cxf* ab, const blas_int* ldab, const blas_int* ipiv, const  float* anorm,  float* rcond, blas_cxf* work,  float* rwork, blas_int* info) ARMA_NOEXCEPT;
